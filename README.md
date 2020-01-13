@@ -36,6 +36,7 @@ Voici les fichiers requis et leur nom associé :
 * OpenCV pour traitement image
 * [A Machine Learning Approach for Removal of JPEG Compression Artifacts: A Survey](https://www.researchgate.net/publication/298801742_A_Machine_Learning_Approach_for_Removal_of_JPEG_Compression_Artifacts_A_Survey)
 * [Introduction to Restoring Video Quality: How to Improve Video with Filters](http://www.digitalfaq.com/guides/video/introduction-restore-video.htm)
+* [Image comparison - fast algorithm](https://stackoverflow.com/questions/843972/image-comparison-fast-algorithm)
 
 ## Problèmes identifiés
 
