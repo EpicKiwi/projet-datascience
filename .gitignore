@@ -127,3 +127,10 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Fichiers CESI
+Sujet.docx
+Sujet-Bonus.docx
+dataset
+dataset_clean_degraded
+.~*
