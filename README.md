@@ -45,4 +45,10 @@ Voici les fichiers requis et leur nom associé :
 * **Noise** : Bruis analogique
 * **Black Line** : Ligne noir fine horizontal
 * **White Line** : Ligne blanche fine horizontal
-* **Surexposition** : Surexposition en luminausité
+* **Over-exposure** : Surexposition en luminausité
+* **Blur**: traits des objets moins distincts
+* **Color shifting** : Aberration chromatiques Rouges et Vertes
+
+|Pinking|Greening|Tearing|Noise|Black Line|White Line|Over-exposure|Blur|Color Shifting|
+|-------|--------|-------|-----|----------|----------|----------|----------|---|
+|![Pinking](examples/pinking.png)|![Greening](examples/greening.png)|![Tearing](examples/tearing.png)|![Noise](examples/noise.png)|![Black Line](examples/black-line.png)|![White Line](examples/white-line.png)|![Over-exposure](examples/over-exposure.png)|![Blur](examples/blur.png)|![Color Shifting](examples/color-shifting.png)|
