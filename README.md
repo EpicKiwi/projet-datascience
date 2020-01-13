@@ -15,6 +15,11 @@ Voici quelques explications sur la structure des dossiers de ce repository
 * `Sujet.docx` : Le sujet du projet
 * `Sujet-Bonus.docx` : Les bonus du projet
 
+### Scripts
+
+* `jupyter.sh` : Démarre JupyterLab à la racine du repository
+* `generate_empty_csv.py` : Genere un CSV vide avec uniquement les noms des fichiers dans la première colonne
+
 ### Fichiers externes
 
 Certains fichiers sont nécéssaire au bon fonctionnement des scripts.
