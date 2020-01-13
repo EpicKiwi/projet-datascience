@@ -48,6 +48,7 @@ Voici les fichiers requis et leur nom associé :
 * **Over-exposure** : Surexposition en luminausité
 * **Blur**: traits des objets moins distincts
 * **Color shifting** : Aberration chromatiques Rouges et Vertes
+* **JPEG Artefact** : Artefactes de compression JPEG
 
 |Pinking|Greening|Tearing|Noise|Black Line|White Line|Over-exposure|Blur|Color Shifting|
 |-------|--------|-------|-----|----------|----------|----------|----------|---|
