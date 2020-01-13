@@ -134,3 +134,6 @@ Sujet-Bonus.docx
 dataset
 dataset_clean_degraded
 .~*
+
+labs/*
+!labs/.gitkeep
