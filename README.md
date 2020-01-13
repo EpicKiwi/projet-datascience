@@ -30,3 +30,19 @@ Voici les fichiers requis et leur nom associé :
 * `dataset_clean_degraded` : Un dossier comprenant les images propres (`clean`) et les images dégradés (`degraded`) associés [Télécharger sur Moodle](https://moodle-ingenieurs.cesi.fr/mod/resource/view.php?id=3237)
 * `Sujet.docx` : Le sujet du projet en Docx [Télécharger sur Moodle](https://moodle-ingenieurs.cesi.fr/mod/resource/view.php?id=3233)
 * `Sujet-Bonus.docx` : Le sujet bonus du projet [Télécharger sur Moodle](https://moodle-ingenieurs.cesi.fr/mod/resource/view.php?id=3238)
+
+## Notes en vrac
+
+* OpenCV pour traitement image
+* [A Machine Learning Approach for Removal of JPEG Compression Artifacts: A Survey](https://www.researchgate.net/publication/298801742_A_Machine_Learning_Approach_for_Removal_of_JPEG_Compression_Artifacts_A_Survey)
+* [Introduction to Restoring Video Quality: How to Improve Video with Filters](http://www.digitalfaq.com/guides/video/introduction-restore-video.htm)
+
+## Problèmes identifiés
+
+* **Pinking** : Barre filtrante Magenta
+* **Greening** : Barre filtrante Verte
+* **Tearing** : Distortion, ligne déformante (I devient <)
+* **Noise** : Bruis analogique
+* **Black Line** : Ligne noir fine horizontal
+* **White Line** : Ligne blanche fine horizontal
+* **Surexposition** : Surexposition en luminausité
