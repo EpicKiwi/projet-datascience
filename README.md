@@ -51,6 +51,8 @@ Voici les fichiers requis et leur nom associé :
 * **Color shifting** : Aberration chromatiques Rouges et Vertes
 * **JPEG Artefact** : Artefactes de compression JPEG
 
-|Pinking|Greening|Tearing|Noise|Black Line|White Line|Over-exposure|Blur|Color Shifting|
-|-------|--------|-------|-----|----------|----------|----------|----------|---|
-|![Pinking](examples/pinking.png)|![Greening](examples/greening.png)|![Tearing](examples/tearing.png)|![Noise](examples/noise.png)|![Black Line](examples/black-line.png)|![White Line](examples/white-line.png)|![Over-exposure](examples/over-exposure.png)|![Blur](examples/blur.png)|![Color Shifting](examples/color-shifting.png)|
+|Pinking|Greening|Tearing|Noise|Black Line|
+|-------|--------|-------|-----|----------|
+|![Pinking](examples/pinking.png)|![Greening](examples/greening.png)|![Tearing](examples/tearing.png)|![Noise](examples/noise.png)|![Black Line](examples/black-line.png)|
+|**White Line**|**Over-exposure**|**Blur**|**Color Shifting**|**JPEG Artefact**|
+|![White Line](examples/white-line.png)|![Over-exposure](examples/over-exposure.png)|![Blur](examples/blur.png)|![Color Shifting](examples/color-shifting.png)|![JPEG Artefact](examples/jpeg-artefact.png)|
