@@ -9,7 +9,7 @@ virtualenv --python=python3.7 venv
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
 	source venv/bin/activate
 elif [[ "$OSTYPE" == "msys" ]]; then
-	./venv/Scripts/activate
+	source ./venv/Scripts/activate
 fi
 pip install -r requirements.txt
 
