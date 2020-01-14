@@ -59,8 +59,9 @@ Voici quelques explications sur la structure des dossiers de ce repository
 
 ### Scripts
 
-* `jupyter.sh` : Démarre JupyterLab à la racine du repository
+* `jupyter.sh` : Démarre JupyterLab à la racine du repository (cela démarrera le virtualenv si besoin)
 * `generate_empty_csv.py` : Genere un CSV vide avec uniquement les noms des fichiers dans la première colonne
+* `./venv.sh` : Démarre un bash dans l'environnement virtuel python et installes les dépendances de `requirements.txt` (Python 3.7 requis)
 
 ### Fichiers externes
 
