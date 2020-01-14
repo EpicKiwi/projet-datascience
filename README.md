@@ -54,6 +54,6 @@ Voici les fichiers requis et leur nom associé :
 
 |Pinking|Greening|Tearing|Noise|Black Line|Posterisation|
 |-------|--------|-------|-----|----------|---|
-|![Pinking](examples/pinking.png)|![Greening](examples/greening.png)|![Tearing](examples/tearing.png)|![Noise](examples/noise.png)|![Black Line](examples/black-line.png)|![Posterisation](example/posterisation.png)|
+|![Pinking](examples/pinking.png)|![Greening](examples/greening.png)|![Tearing](examples/tearing.png)|![Noise](examples/noise.png)|![Black Line](examples/black-line.png)|![Posterisation](examples/posterisation.png)|
 |**White Line**|**Over-exposure**|**Blur**|**Color Shifting**|**JPEG Artefact**|
 |![White Line](examples/white-line.png)|![Over-exposure](examples/over-exposure.png)|![Blur](examples/blur.png)|![Color Shifting](examples/color-shifting.png)|![JPEG Artefact](examples/jpeg-artefact.png)|
