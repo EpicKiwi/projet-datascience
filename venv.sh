@@ -6,7 +6,11 @@ echo " Démarrage de l'environnement virtuel..."
 echo ""
 
 virtualenv --python=python3.7 venv
-source venv/bin/activate
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+	source venv/bin/activate
+elif [[ "$OSTYPE" == "msys" ]]; then
+	./venv/Scripts/activate
+fi
 pip install -r requirements.txt
 
 echo ""
