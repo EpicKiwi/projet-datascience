@@ -2,6 +2,35 @@
 
 > Projet d'option DataScience
 
+## Le sujet
+
+* Explication des processus métier de l'organisation du projet
+	* Méthode CRISP
+	* Comment noter les images ?
+	* Quel environnement utiliser ?
+		* En Dev
+		* En Prod
+* Pertiance de la solution
+	* Pourquoi avoir utilisé ces algos ?
+	* Pouquoi cette structure ?
+	* Porquois ces traitements ?
+* Explication des recherches
+	* Recherches sur les filtres
+	* Même les echecs
+* Version video
+	* Quels changements ?
+	* Quels améliorations ?
+	* Expliquer et discuter ?
+
+### Livrables
+
+* Un **Notebook** de rapport contenant :
+	* Le prototype de la solution
+	* Le workflow de modification des données
+	* La démonstration de la pertinance des données
+* Un **export serialisé du modèle** entrainé
+* Un **pipeline complet** utilisable en l'état et utilisant le modèle exporté.
+
 ## Structure
 
 Voici quelques explications sur la structure des dossiers de ce repository
