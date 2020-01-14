@@ -50,9 +50,10 @@ Voici les fichiers requis et leur nom associé :
 * **Blur**: traits des objets moins distincts
 * **Color shifting** : Aberration chromatiques Rouges et Vertes
 * **JPEG Artefact** : Artefactes de compression JPEG
+* **Posterisation** : Réduction du nombre valeurs des dégradés
 
-|Pinking|Greening|Tearing|Noise|Black Line|
-|-------|--------|-------|-----|----------|
-|![Pinking](examples/pinking.png)|![Greening](examples/greening.png)|![Tearing](examples/tearing.png)|![Noise](examples/noise.png)|![Black Line](examples/black-line.png)|
+|Pinking|Greening|Tearing|Noise|Black Line|Posterisation|
+|-------|--------|-------|-----|----------|---|
+|![Pinking](examples/pinking.png)|![Greening](examples/greening.png)|![Tearing](examples/tearing.png)|![Noise](examples/noise.png)|![Black Line](examples/black-line.png)|![Posterisation](example/posterisation.png)|
 |**White Line**|**Over-exposure**|**Blur**|**Color Shifting**|**JPEG Artefact**|
 |![White Line](examples/white-line.png)|![Over-exposure](examples/over-exposure.png)|![Blur](examples/blur.png)|![Color Shifting](examples/color-shifting.png)|![JPEG Artefact](examples/jpeg-artefact.png)|
