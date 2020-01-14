@@ -22,6 +22,19 @@
 	* Quels améliorations ?
 	* Expliquer et discuter ?
 
+### Méthodologie CRISP-DM
+
+Nous avons utilisé durant ce projet la méthode CRISP-DM qui nous à permis d'analyser les données et de construie les données.
+La méthodologie CRISP-DM donne les différentes étapes que l'on va suivre pour traitere les données reçues et concevoir un algorithme de machine learning.
+
+1. **Business Understanding** : Dans cette première étape il est question de comprendre les besoins du client en discutant avec ce dernier. L'objectif est de connaitre le contexte dans lequel les données sont obtenues et dans lequel notre modèle sera utilisé.
+2. **Data Unserstanding** : Il faut ensuite analyser les données pour en comprendre le format, la provenance, les éventuels biais qui pourrait apparaitre. C'est dans cette partie que l'on crée la carte d'identité du dataset et qu'on l'explore.
+3. **Data Préparation** : L'objectif ici est de préparer les données pour qu'elles soient utilisées par l'algorithme de machine leanring. Cela inclue, la normalisation, l'élimination des doublons ou des null, etc.
+4. **Modélisation** : Durant cette partie, on définis l'algorithme de machine leanring que nous allons utiliser ainsi que les différents seuperparamètres qui seront utilisés.
+5. **Évaluation** : Enfin, on évalue les résultats de notre modèle pour en déduire la stratégie à adopter.
+
+Ces différentes étapes représentent un cycle. Ce cycle est repris tant que les résultats du modèle ne sont pas satisfaisants. Des que l'on a un modèle satisfaisant, on peu le déployer pour l'utiliser en production.
+
 ### Livrables
 
 * Un **Notebook** de rapport contenant :
