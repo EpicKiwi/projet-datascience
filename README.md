@@ -57,3 +57,17 @@ Voici les fichiers requis et leur nom associé :
 |![Pinking](examples/pinking.png)|![Greening](examples/greening.png)|![Tearing](examples/tearing.png)|![Noise](examples/noise.png)|![Black Line](examples/black-line.png)|![Posterisation](examples/posterisation.png)|
 |**White Line**|**Over-exposure**|**Blur**|**Color Shifting**|**JPEG Artefact**|
 |![White Line](examples/white-line.png)|![Over-exposure](examples/over-exposure.png)|![Blur](examples/blur.png)|![Color Shifting](examples/color-shifting.png)|![JPEG Artefact](examples/jpeg-artefact.png)|
+
+### Labelisation des données
+
+Nous avons pris quelques heures pour labéliser un subset des données de `dataset_clean_degraded` et en extraire les problèmes reconnus sur les images. Nous avons procédé comme suis : 
+
+|Lignes|Personne|Labels éfféctués|
+|------|--------|----------------|
+|2 - 786|Nicolas|152|
+|787 - 1573|Baptiste|100|
+|1574 - 2360|Alexis|150|
+|2361 - 3147|Clément|163|
+|3148 - 3934|Etienne|100|
+|3935 - 4721|Adrien K|50|
+|4722 - 5501|Adrien T|200|
