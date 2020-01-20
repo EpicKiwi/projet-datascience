@@ -2,6 +2,7 @@ import base_functions as bfun
 import matplotlib.pyplot as plt
 import numpy as np
 import os
+import pandas as pd
 
 class ScoringTester:
     result = []
@@ -38,7 +39,7 @@ class ScoringTester:
         for item in result[0:3]:
             self.compare_images(*(self.get_clean_n_degraded_image(item[1])), item[1])
             
-        median = np.median([item[0] for item in result])
+        median = self.get_result_median()
         closest_to_median_idx = min(range(len(result_values_only)), key=lambda i: abs(result_values_only[i]-median))
         a_bit_before_median = closest_to_median_idx - 2
         a_bit_after_median = closest_to_median_idx + 2
@@ -54,7 +55,7 @@ class ScoringTester:
             result = self.result
         result_values_only = [item[0] for item in result]
         mean = np.mean(result_values_only)
-        median = np.median(result_values_only)
+        median = self.get_result_median()
         std = np.std(result_values_only)
         print("mean", mean)
         print("median", median)
@@ -77,3 +78,26 @@ class ScoringTester:
         result.sort()
         self.result = result
         print('\r\n' + str(len(self.result)) + " comparaison effectuées")
+        
+    def get_result_median(self):
+        return np.median([item[0] for item in self.result])
+    
+    def aggregated_process(self, csv_path = os.path.join("..", "dataset_problems.csv"), sep=";"):
+        data = pd.read_csv(csv_path, sep=sep)
+        keys = data.keys().drop('file')
+        result = {}
+
+        for idx, key in enumerate(keys, 1):
+            file_list = data[data[key] >= 1]['file']
+            
+            if len(file_list):
+                self.process(imgList = file_list)
+                mean = np.mean([item[0] for item in self.result])
+                median = self.get_result_median()
+            else:
+                self.result, mean, median = [], 0, 0
+            result[key] = {'population': len(self.result), 'mean': mean, 'median': median}
+        
+        result = pd.DataFrame(result).T
+        result.sort_values(axis=0, by='median', inplace=True)
+        return result
