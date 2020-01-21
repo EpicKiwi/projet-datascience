@@ -90,7 +90,8 @@ class ScoringTester:
         for idx, key in enumerate(keys, 1):
             file_list = data[data[key] >= 1]['file']
             
-            if len(file_list):
+            if len(file_list) > 0:
+                print('Processing ' + key + ' for ' + self.image_matching_func.__name__)
                 self.process(imgList = file_list)
                 mean = np.mean([item[0] for item in self.result])
                 median = self.get_result_median()
