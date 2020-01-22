@@ -79,3 +79,7 @@ def metric_list_jumps_calculator(metric_list):
             jumps.append(np.abs(metric_list[idx] - metric_list[idx+1]))
     return jumps
 
+def pretty_print(matrice):
+    df = pd.DataFrame(matrice)
+    mat_conf = df.style
+    mat_conf
