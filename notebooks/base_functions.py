@@ -53,3 +53,19 @@ def get_whitepix_by_line(img, threshold): # threshold above  210 for white pixel
     mask = np.where((img[:,:,0] > threshold) & (img[:,:,1] > threshold) & (img[:,:,2] > threshold), 1, 0)
     hist = np.sum(mask, axis=1)
     plt.plot(hist)
+    
+def calc_rows_hue_aggregation(image, aggreg_func = np.median, pix_col = 0):
+    aggregated_image = []
+    for row in image:
+        new_row = []
+        for pix in row:
+            new_row.append(pix[pix_col])
+        aggregated_image.append(aggreg_func(new_row))
+    return aggregated_image
+
+def metric_list_jumps_calculator(metric_list):
+    jumps = []
+    for idx, val in enumerate(metric_list):
+        if(idx + 1 < len(metric_list)):
+            jumps.append(np.abs(metric_list[idx] - metric_list[idx+1]))
+    return jumps
