@@ -5,7 +5,7 @@ import operator
 import os
 import pandas as pd
 
-def analayse_image(img):
+def analyse_image(img):
     fig = plt.figure(figsize=(20, 4))
     color = ('r', 'g', 'b')
     a = fig.add_subplot(1, 2, 1)
