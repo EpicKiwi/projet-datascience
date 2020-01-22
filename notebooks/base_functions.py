@@ -47,9 +47,18 @@ def get_normalized_gray_image(path):
 def get_blackpix_by_line(img, threshold): # threshold below 40 for black pixel search
     mask = np.where((img[:,:,0] < threshold) & (img[:,:,1] < threshold) & (img[:,:,2] < threshold), 1, 0)
     hist = np.sum(mask, axis=1)
+    black_max = np.argmax(hist)
+    plt.title("nb black pixels")
     plt.plot(hist)
+    plt.show()
+    return black_max
+    
     
 def get_whitepix_by_line(img, threshold): # threshold above  210 for white pixel search
     mask = np.where((img[:,:,0] > threshold) & (img[:,:,1] > threshold) & (img[:,:,2] > threshold), 1, 0)
     hist = np.sum(mask, axis=1)
+    white_max = np.argmax(hist)
+    plt.title("nb white pixels")
     plt.plot(hist)
+    plt.show()
+    return white_max
