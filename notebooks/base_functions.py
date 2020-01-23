@@ -5,7 +5,7 @@ import operator
 import os
 import pandas as pd
 
-def analayse_image(img):
+def analyse_image(img):
     fig = plt.figure(figsize=(20, 4))
     color = ('r', 'g', 'b')
     a = fig.add_subplot(1, 2, 1)
@@ -23,6 +23,9 @@ def analayse_image(img):
     
 def img_path2array(path):
     return cv2.cvtColor(cv2.imread(path, 10), cv2.COLOR_BGR2RGB)
+
+def img_array2file(path, array):
+    cv2.imwrite(path, cv2.cvtColor(array, cv2.COLOR_RGB2BGR))
 
 def get_labelized_images_name(label, csv_path = os.path.join("..", "dataset_problems.csv")):
     data = pd.read_csv(csv_path, sep=";")
@@ -83,3 +86,27 @@ def pretty_print(matrice):
     df = pd.DataFrame(matrice)
     mat_conf = df.style
     mat_conf
+    
+def accuracy(fn=0, fp=0, tn=0, tp=0, matrice = {}):
+    if(len(matrice.keys())):
+        return (matrice['true']['positif'] + matrice['true']['negatif'])/(matrice['true']['positif'] + matrice['true']['negatif'] + matrice['false']['positif'] + matrice['false']['negatif'])
+    else:
+        return (tp+tn)/(tp+tn+fp+fn)
+    
+def precision(fn=0, fp=0, tn=0, tp=0, matrice = {}):
+    if(len(matrice.keys())):
+        return matrice['true']['positif']/(matrice['true']['positif'] + matrice['false']['positif'])
+    else:
+        return tp/(tp+fp)
+    
+def recall(fn=0, fp=0, tn=0, tp=0, matrice = {}):
+    if(len(matrice.keys())):
+        return matrice['true']['positif']/(matrice['true']['positif'] + matrice['false']['negatif'])
+    else:
+        return tp/(tp+fn)
+    
+def f1_score(fn=0, fp=0, tn=0, tp=0, matrice = {}):
+    var_recall = recall(fn, fp, tn, tp, matrice)
+    var_precision = precision(fn, fp, tn, tp, matrice)
+    return 2*(var_recall * var_precision) / (var_recall + var_precision)
+
