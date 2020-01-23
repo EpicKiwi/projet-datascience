@@ -24,6 +24,9 @@ def analyse_image(img):
 def img_path2array(path):
     return cv2.cvtColor(cv2.imread(path, 10), cv2.COLOR_BGR2RGB)
 
+def img_array2file(path, array):
+    cv2.imwrite(path, cv2.cvtColor(array, cv2.COLOR_RGB2BGR))
+
 def get_labelized_images_name(label, csv_path = os.path.join("..", "dataset_problems.csv")):
     data = pd.read_csv(csv_path, sep=";")
     return data[data[label] >= 1]['file']

@@ -2,6 +2,7 @@ import random
 import os, os.path
 import cv2
 import numpy as np
+import matplotlib.pyplot as plt
 
 import scipy.misc
 import scipy.signal
@@ -21,7 +22,9 @@ class Blur:
     def recognize(self, file_name = "_.jpg"):
         if(file_name != "" and (file_name.__contains__('.jpg') or file_name.__contains__('.png'))):
             if(self.path != None):
-                value = self.check_blur(self.path+file_name)
+                img = Image.open(self.path+file_name)
+                img = np.array(img)
+                value = self.check_blur(img, True)
             else:
                 value = self.check_blur()
                 
@@ -36,6 +39,10 @@ class Blur:
             return 'Problem'
             
     def recognize_path(self, random_number = 10, contains_name = False):
+        if(self.path == None):
+            print("self.path is undefined")
+            return None
+        
         moy, to_moy, checkB, checkC, fals = 0, 0, 0, 0, 0
         for i in range(0, int(random_number)):
             r = get_random_file(self.path)
@@ -57,18 +64,30 @@ class Blur:
                             
         print('Check Blur : '+str(checkB)+'/'+str(nbr_image*2)+' | Check Clean : '+str(checkC)+'/'+str(nbr_image*2)+' | False : '+str(fals)+'/'+str(nbr_image*2) + ' - '+str(int(fals/(nbr_image*2)*100))+'% | Moyenne : '+str(int(moy/(fals+1)))+'/'+str(int(to_moy/(nbr_image*2))))
     
-    def unblur(self, img = None):
+    def unblur(self, img = None, out = False):
         if(img == None):
             img = self.img_blur
+           
+        if(self.log):
+            print('GANS work')
             
         model = RRDN(weights='gans')
         sr_img = model.predict(np.array(img))
-        self.img_unblur = sr_img
-        
-        return sr_img
+                
+        if(self.log):
+            print('Scale work')
+            
+        scale_percent = 25
+        width = int(sr_img.shape[1] * scale_percent / 100)
+        height = int(sr_img.shape[0] * scale_percent / 100)
+        sr_img = cv2.resize(sr_img, (width, height), interpolation = cv2.INTER_NEAREST)
 
-    def check_blur(self, img = None):
-        if(img == None):
+        self.img_unblur = sr_img
+        if(out):
+            return sr_img
+
+    def check_blur(self, img = None, file = False):
+        if(not file):
             img = self.img_blur
             
         if(img.ndim == 3):
@@ -84,22 +103,50 @@ class Blur:
         r = folder+r
         return r
     
-    def create(self, img):
+    def load(self, img):
         self.img = Image.open(img)
         self.img_blur = np.array(self.img)
     
     def blur(self):
         self.img_blur = np.array(self.img.filter(ImageFilter.BLUR))
     
-    def show_ori(self):
-        display(self.img)
+    def show(self):
+        fig=plt.figure(figsize=(16, 16))
+
+        fig.add_subplot(1, 3, 1)
+        plt.imshow(self.img)
+        plt.title('Image d\'origine')
+        plt.axis('off')
+
+        fig.add_subplot(1, 3, 2)
+        plt.imshow(self.img_blur)
+        plt.title('Image blur')
+        plt.axis('off')
         
-    def show_blur(self):
-        display(Image.fromarray(self.img_blur))
+        fig.add_subplot(1, 3, 3)
+        plt.imshow(self.img_unblur)
+        plt.title('Image unblur')
+        plt.axis('off')
         
-    def show_unblur(self):
-        display(Image.fromarray(self.img_unblur))
+        plt.show()
+    
+    def scoring_unblur(self):
+        if(self.unblur == None):
+            print('Missing to execute unblur()')
+            return None
         
+        print('Score original : '+str(self.check_blur(np.array(self.img), True)))
+        print('Score blur : '+str(self.check_blur(self.img_blur, True)) )
+        print('Score unblur : '+str(self.check_blur(self.img_unblur, True)))
+    
     def save_img(self, img, filename = "output.jpg"):
         img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
         cv2.imwrite(filename, img)
+        
+    def clear(self, path = None, max_limit = 180, log = False):
+        self.log = log
+        self.path = path
+        self.max_limit = max_limit
+        self.img = None
+        self.img_blur = None
+        self.img_unblur = None
