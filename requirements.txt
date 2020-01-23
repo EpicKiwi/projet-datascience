@@ -10,3 +10,4 @@ scikit-image
 tensorflow
 tensorflow_probability
 pyCLI
+ISR
