@@ -36,6 +36,10 @@ class Blur:
             return 'Problem'
             
     def recognize_path(self, random_number = 10, contains_name = False):
+        if(self.path == None):
+            print("self.path is undefined")
+            return None
+        
         moy, to_moy, checkB, checkC, fals = 0, 0, 0, 0, 0
         for i in range(0, int(random_number)):
             r = get_random_file(self.path)
@@ -60,9 +64,21 @@ class Blur:
     def unblur(self, img = None):
         if(img == None):
             img = self.img_blur
+           
+        if(self.log):
+            print('GANS work')
             
         model = RRDN(weights='gans')
         sr_img = model.predict(np.array(img))
+                
+        if(self.log):
+            print('Scale work')
+            
+        scale_percent = 25
+        width = int(sr_img.shape[1] * scale_percent / 100)
+        height = int(sr_img.shape[0] * scale_percent / 100)
+        sr_img = cv2.resize(sr_img, (width, height), interpolation = cv2.INTER_NEAREST)
+
         self.img_unblur = sr_img
         
         return sr_img
@@ -84,7 +100,7 @@ class Blur:
         r = folder+r
         return r
     
-    def create(self, img):
+    def load(self, img):
         self.img = Image.open(img)
         self.img_blur = np.array(self.img)
     
@@ -103,3 +119,11 @@ class Blur:
     def save_img(self, img, filename = "output.jpg"):
         img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
         cv2.imwrite(filename, img)
+        
+    def clear(self, path = None, max_limit = 180, log = False):
+        self.log = log
+        self.path = path
+        self.max_limit = max_limit
+        self.img = None
+        self.img_blur = None
+        self.img_unblur = None
