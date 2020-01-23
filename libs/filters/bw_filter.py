@@ -12,7 +12,7 @@ class BWFilter(Filter):
         h_median = bw.detectionScratchLineMedian(img)
         h_std = bw.detectionScratchLineStd(img)
         
-        return (False, True)[h_median and h_std] 
+        return (False, True)[h_median != 0 and h_std != 0] 
 
     def clean(self, img):
         """

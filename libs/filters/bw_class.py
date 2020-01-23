@@ -5,6 +5,8 @@ def detectionScratchLineMedian(img):
     hist_jumps = bfun.metric_list_jumps_calculator(aggreg)
     hist_jumps[0], hist_jumps[-1] = 0, 0
     hist_sort = np.flip(np.sort(hist_jumps))
+    result = 0
+    
     for i in hist_sort[:10]:
         x = np.where(hist_jumps == i)
         if(abs(hist_jumps[x[0][0]]-hist_jumps[x[0][0]+1]) < 10 or abs(hist_jumps[x[0][0]]-hist_jumps[x[0][0]+1]) < hist_jumps[x[0][0]]*0.2):
@@ -22,6 +24,8 @@ def detectionScratchLineStd(img):
     hist_jumps = bfun.metric_list_jumps_calculator(aggreg)
     hist_jumps[0], hist_jumps[-1] = 0, 0
     hist_sort = np.flip(np.sort(hist_jumps))
+    result = 0
+    
     for i in hist_sort[:10]:
         x = np.where(hist_jumps == i)
         if(abs(hist_jumps[x[0][0]]-hist_jumps[x[0][0]+1]) < 10 or abs(hist_jumps[x[0][0]]-hist_jumps[x[0][0]+1]) < hist_jumps[x[0][0]]*0.2):
@@ -35,7 +39,6 @@ def detectionScratchLineStd(img):
     return h_scratch
 
 def defectCorrection(h, img_defect):    
-    # crèe une matrice de convolution pour changer la couleur du pixel centrale par la moyenne des pixels au-dessus et en-dessous de la ligne
     mean_convol = np.array( 
             [
                 [0,0,1/2,0,0],
