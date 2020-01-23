@@ -5,4 +5,6 @@ cli = CleanApp()
 
 cli.add_filter("dummy", DummyFilter)
 cli.add_filter("blur", BlurFilter)
+cli.add_filter("bw", BWFilter)
+
 cli.run()
