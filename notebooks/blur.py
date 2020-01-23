@@ -21,7 +21,9 @@ class Blur:
     def recognize(self, file_name = "_.jpg"):
         if(file_name != "" and (file_name.__contains__('.jpg') or file_name.__contains__('.png'))):
             if(self.path != None):
-                value = self.check_blur(self.path+file_name)
+                img = Image.open(self.path+file_name)
+                img = np.array(img)
+                value = self.check_blur(img, True)
             else:
                 value = self.check_blur()
                 
@@ -83,8 +85,8 @@ class Blur:
         
         return sr_img
 
-    def check_blur(self, img = None):
-        if(img == None):
+    def check_blur(self, img = None, file = False):
+        if(not file):
             img = self.img_blur
             
         if(img.ndim == 3):
