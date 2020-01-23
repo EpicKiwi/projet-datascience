@@ -86,3 +86,27 @@ def pretty_print(matrice):
     df = pd.DataFrame(matrice)
     mat_conf = df.style
     mat_conf
+    
+def accuracy(fn=0, fp=0, tn=0, tp=0, matrice = {}):
+    if(len(matrice.keys())):
+        return (matrice['true']['positif'] + matrice['true']['negatif'])/(matrice['true']['positif'] + matrice['true']['negatif'] + matrice['false']['positif'] + matrice['false']['negatif'])
+    else:
+        return (tp+tn)/(tp+tn+fp+fn)
+    
+def precision(fn=0, fp=0, tn=0, tp=0, matrice = {}):
+    if(len(matrice.keys())):
+        return matrice['true']['positif']/(matrice['true']['positif'] + matrice['false']['positif'])
+    else:
+        return tp/(tp+fp)
+    
+def recall(fn=0, fp=0, tn=0, tp=0, matrice = {}):
+    if(len(matrice.keys())):
+        return matrice['true']['positif']/(matrice['true']['positif'] + matrice['false']['negatif'])
+    else:
+        return tp/(tp+fn)
+    
+def f1_score(fn=0, fp=0, tn=0, tp=0, matrice = {}):
+    var_recall = recall(fn, fp, tn, tp, matrice)
+    var_precision = precision(fn, fp, tn, tp, matrice)
+    return 2*(var_recall * var_precision) / (var_recall + var_precision)
+
