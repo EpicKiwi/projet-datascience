@@ -91,7 +91,7 @@ class Blur:
             img = self.img_blur
             
         if(img.ndim == 3):
-            img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+            img = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
         
         return cv2.Laplacian(img, cv2.CV_64F).var()
         

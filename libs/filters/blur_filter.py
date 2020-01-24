@@ -1,5 +1,6 @@
 from app import Filter
 from .blur_class import Blur
+import Numpy as np
 
 class BlurFilter(Filter):
     
@@ -12,7 +13,7 @@ class BlurFilter(Filter):
 
         img : Un tableau Numpy RGB (576, 720, 3) de l'image
         """
-        
+        img = np.interp(img, (0, 1), (0, 255))
         return (False, True)[self.blur.check_blur(img, True) <= self.blur.max_limit] 
 
     def clean(self, img):
