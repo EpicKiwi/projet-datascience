@@ -1,8 +1,8 @@
-import bas_functions as bfun
+from .base_functions import calc_rows_hue_aggregation, metric_list_jumps_calculator
 
 def detectionScratchLineMedian(img):
-    aggreg = bfun.calc_rows_hue_aggregation(img, np.median, 0)
-    hist_jumps = bfun.metric_list_jumps_calculator(aggreg)
+    aggreg = calc_rows_hue_aggregation(img, np.median, 0)
+    hist_jumps = metric_list_jumps_calculator(aggreg)
     hist_jumps[0], hist_jumps[-1] = 0, 0
     hist_sort = np.flip(np.sort(hist_jumps))
     result = 0
@@ -20,8 +20,8 @@ def detectionScratchLineMedian(img):
     return h_scratch
 
 def detectionScratchLineStd(img):
-    aggreg = bfun.calc_rows_hue_aggregation(img, np.std, 0)
-    hist_jumps = bfun.metric_list_jumps_calculator(aggreg)
+    aggreg = calc_rows_hue_aggregation(img, np.std, 0)
+    hist_jumps = metric_list_jumps_calculator(aggreg)
     hist_jumps[0], hist_jumps[-1] = 0, 0
     hist_sort = np.flip(np.sort(hist_jumps))
     result = 0

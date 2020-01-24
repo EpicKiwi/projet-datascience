@@ -1,5 +1,5 @@
 from app import Filter
-from blur_class import Blur
+from .blur_class import Blur
 
 class BlurFilter(Filter):
     

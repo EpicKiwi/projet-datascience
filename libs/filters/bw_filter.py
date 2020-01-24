@@ -1,5 +1,5 @@
 from app import Filter
-from bw_class as bw
+from .bw_class import detectionScratchLineMedian, detectionScratchLineStd, defectCorrection
 
 class BWFilter(Filter):
         
@@ -9,8 +9,8 @@ class BWFilter(Filter):
 
         img : Un tableau Numpy RGB (576, 720, 3) de l'image
         """
-        h_median = bw.detectionScratchLineMedian(img)
-        h_std = bw.detectionScratchLineStd(img)
+        h_median = detectionScratchLineMedian(img)
+        h_std = detectionScratchLineStd(img)
         
         return (False, True)[h_median != 0 and h_std != 0] 
 
