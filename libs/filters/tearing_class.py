@@ -128,6 +128,22 @@ def _searchH1H2(hist, img):
     category = _reduceFalsePositive(limitsValues, median)
     return tearingLimits, category
 
+def _histLeftColumn(img):
+    #Vertical box pour prendre qu'une partie de l'image
+    display(img)
+    box = _createVerticalBox(img)
+    leftColumn = img.crop(box)
+    
+    #Griser la colonne
+    arrayImg = np.asarray(leftColumn, dtype="int32")
+    grayLeftColumn = _grayImage(arrayImg)
+    grayLeftColumn = _capColors(grayLeftColumn)
+    
+    #Créer l'histogramme
+    hist = _createHist(grayLeftColumn, 5)
+    plt.plot(hist)
+    return hist
+
 def _check(img):
     
     hist = _histLeftColumn(img)
